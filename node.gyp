@@ -729,7 +729,20 @@
 
       'ldflags' : [
         '<(NDK_SYS_ROOT)/resourceschedule/resource_schedule_service/libressched_client.z.so',
-        '<(NDK_SYS_ROOT)/startup/init/libbegetutil.z.so'
+        '<(NDK_SYS_ROOT)/startup/init/libbegetutil.z.so',
+        '-Wl,--exclude-libs=libhistogram.a',
+        '-Wl,--exclude-libs=libuvwasi.a',
+        '-Wl,--exclude-libs=libzlib.a',
+        '-Wl,--exclude-libs=libllhttp.a',
+        '-Wl,--exclude-libs=libcares.a',
+        '-Wl,--exclude-libs=libuv.a',
+        '-Wl,--exclude-libs=libnghttp2.a',
+        '-Wl,--exclude-libs=libbrotli.a',
+        '-Wl,--exclude-libs=libopenssl.a',
+        '-Wl,--exclude-libs=libngtcp2.a',
+        '-Wl,--exclude-libs=libnghttp3.a',
+        '-Wl,--exclude-libs=libzlib_inflate_chunk_simd.a',
+        '-Wl,--exclude-libs=libzlib_adler32_simd.a'
       ],
       'conditions': [
         [ 'openssl_default_cipher_list!=""', {
@@ -1440,7 +1453,7 @@
       ],
 
       'defines': [ 'NODE_WANT_INTERNALS=1' ],
-   
+
       'ldflags' : [
         '<(NDK_SYS_ROOT)/resourceschedule/resource_schedule_service/libressched_client.z.so',
         '<(NDK_SYS_ROOT)/startup/init/libbegetutil.z.so'
